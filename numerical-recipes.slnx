@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/Console/Console.csproj" />
+  <Project Path="src/LinearAlgebraicEquations/LinearAlgebraicEquations.csproj" />
+  <Project Path="src/Shared/Shared.csproj" />
+  <Project Path="tests/SharedTests/SharedTests.csproj" />
+</Solution>
