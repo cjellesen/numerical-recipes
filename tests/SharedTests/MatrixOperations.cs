@@ -41,9 +41,9 @@ public class MatrixOperations
     [Fact]
     public void TestRowReduction()
     {
-        var matrix = Tensor.Create([1.0, 20.0, 3.0, 5.0, 3.0, 8, 10.0, 2.0, 2.0], [3, 3]);
+        var matrix = Tensor.Create([8.0, -6.0, 2.0, -6.0, 7.0, -4.0, 2.0, -4.0, 3.0], [3, 3]);
         MatrixOperations<double>.ComputeRowEchelonForm(matrix);
-        // var truthTable = Tensor.Create([5.0, 3.0, 8, 1.0, 20.0, 3.0, 10.0, 2.0, 2.0], [3, 3]);
-        // Assert.Equal(truthTable, matrix);
+        var truthTable = Tensor.Create([8.0, -6.0, 2, 0.0, 2.5, -2.5, 0, 0.0, 0.0], [3, 3]);
+        Assert.Equal(truthTable, matrix);
     }
 }

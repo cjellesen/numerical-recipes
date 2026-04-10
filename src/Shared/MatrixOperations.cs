@@ -7,11 +7,6 @@ namespace Shared;
 
 public static class MatrixOperations<T> where T: IFloatingPoint<T>
 {
-    public static void RowReduction(TensorSpan<T> a)
-    {
-        ValidateRank(a);
-    }
-    
     private static readonly ArrayPool<T> ArrayPool = ArrayPool<T>.Shared;
 
     public static void ComputeRowEchelonForm(TensorSpan<T> a)
@@ -21,6 +16,10 @@ public static class MatrixOperations<T> where T: IFloatingPoint<T>
         var currRowIdx = 0;
         for (int i = 0; i < a.Lengths[1]; i++)
         {
+            if (currRowIdx >= a.Lengths[0])
+            {
+                return;
+            }
             var pivot = LocatePivot(a, currRowIdx, i);
             SwapRows(a, currRowIdx, pivot);
 
